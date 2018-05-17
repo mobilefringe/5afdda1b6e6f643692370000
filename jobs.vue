@@ -79,9 +79,12 @@ define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "bootstrap-vue
             },
             created() {
                 this.loadData().then(response => {
-                    console.log(this.processedJobs)
-                    this.dataLoaded = true;
+                    var temp_repo = this.findRepoByName('Jobs Banner');
+                    if(temp_repo) {
+                        this.pageBanner = temp_repo.images[0];
+                    }
                     
+                    this.dataLoaded = true;
                 });
             },
             computed: {
@@ -114,7 +117,7 @@ define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "bootstrap-vue
             methods: {
                 loadData: async function () {
                     try {
-                        let results = await Promise.all([this.$store.dispatch("getData", "jobs")]);
+                        let results = await Promise.all([this.$store.dispatch("getData", "repos"), this.$store.dispatch("getData", "jobs")]);
                         return results;
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
