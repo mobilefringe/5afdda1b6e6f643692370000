@@ -83,6 +83,7 @@
 			},
 			watch: {
                 currentPromo : function (){
+                    console.log(this.currentPromo)
                     if(this.currentPromo != null) {
                         if (_.includes(this.currentPromo.store.store_front_url_abs, 'missing')) {
                             this.currentPromo.store.store_front_url_abs = "http://placehold.it/400x400";
