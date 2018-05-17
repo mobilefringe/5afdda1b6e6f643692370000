@@ -81,6 +81,18 @@
 					console.error("Could not retrieve data from server. Please check internet connection and try again.");
 				});
 			},
+			watch: {
+                currentPromo : function (){
+                    if(this.currentPromo != null) {
+                        if (this.currentJob.store != null && this.currentPromo.store != undefined && _.includes(this.currentPromo.store.store_front_url_abs, 'missing')) {
+                            this.currentPromo.store.store_front_url_abs = "http://placehold.it/400x400";
+                        } else if (this.currentPromo.store == null || this.currentPromo.store == undefined) {
+                            this.currentPromo.store = {};
+                            this.currentPromo.store.store_front_url_abs =  "http://placehold.it/400x400";
+                        }
+                    }
+                }
+            },
             computed: {
                 ...Vuex.mapGetters([
                     'property',
