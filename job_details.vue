@@ -81,7 +81,6 @@
 				}, error => {
 					console.error("Could not retrieve data from server. Please check internet connection and try again.");
 				});
-				
 			},
             computed: {
                 ...Vuex.mapGetters([
