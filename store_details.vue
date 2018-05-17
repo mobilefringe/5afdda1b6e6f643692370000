@@ -212,11 +212,11 @@
                     category = this.findCategoryById(currentStoreCategory)
                     return category.name
                 },
-                getSVGurl () {
-                    return "https://www.mallmaverick.com" + this.property.svgmap_url;
+                getPNGurl () {
+                    return "https://www.mallmaverick.com" + this.property.map_url;
                 },
-                svgMapRef () {
-                    return _.filter(this.$children, function(o) { return (o.$el.className == "svg-map") })[0];
+                pngMapRef() {
+                    return this.$refs.pngmapref;
                 }
             },
             methods: {
@@ -233,13 +233,13 @@
                         this.$router.replace({ name: 'stores' });
                     }
                 },
-                updateSVGMap (map) {
-                    this.map = map;
-                    this.dropPin();
+                addLandmark(store) {
+                    this.pngMapRef.addMarker(store);
                 },
-                dropPin () {
-                    this.svgMapRef.addMarker(this.currentStore, '//codecloud.cdn.speedyrails.net/sites/589e308f6e6f641b9f010000/image/png/1484850466000/show_pin.png');
-                    this.svgMapRef.setViewBox(this.currentStore)
+                updatePNGMap(map) {
+                    this.map = map;
+                    // console.log("in updatepng");
+                    this.addLandmark(this.currentStore);
                 },
                 isMultiDay(promo) {
                     var timezone = this.timezone
