@@ -79,6 +79,7 @@
             data: function data() {
                 return {
                     dataLoaded: false,
+                    pageBanner: "",
                     form_data: {},
                     loginPending: null,
                     formSuccess: false,
