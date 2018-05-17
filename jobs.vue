@@ -73,6 +73,7 @@ define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "bootstrap-vue
             data: function () {
                 return {
                     dataLoaded: false,
+                    pageBanner: "",
                     toggleJobs: false,
                 }
             },
