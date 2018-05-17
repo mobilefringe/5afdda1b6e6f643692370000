@@ -42,6 +42,7 @@
             data: function () {
                 return {
                     dataLoaded: false,
+                    pageBanner: "",
                     currentPage: null,
                     siteInfo: site
                 }
