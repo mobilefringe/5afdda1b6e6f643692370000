@@ -58,6 +58,7 @@
 			data: function() {
 				return {
 					dataLoaded: false,
+					pageBanner: "",
 					currentEvent: null,
 				    siteInfo: site,
 				}
