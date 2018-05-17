@@ -85,7 +85,6 @@
 			},
 			watch: {
                 currentEvent : function (){
-                    console.log(this.currentEvent)
                     if(this.currentEvent != null) {
                         if (this.currentEvent.eventable_type === "Store"){
                             if (_.includes(this.currentEvent.event_image_url_abs, 'missing')) {
