@@ -62,12 +62,16 @@
                 }
             },
             created() {
-				this.$store.dispatch("getData", "promotions").then(response => {
-				    var temp_repo = this.findRepoByName('Promos & Events Banner');
+                this.$store.dispatch("getData", "repos").then(response => {
+					var temp_repo = this.findRepoByName('Promos & Events Banner');
                     if(temp_repo) {
                         this.pageBanner = temp_repo.images[0];
                     }
-                    
+				}, error => {
+					console.error("Could not retrieve data from server. Please check internet connection and try again.");
+				});
+				
+				this.$store.dispatch("getData", "promotions").then(response => {
 					this.currentPromo = this.findPromoBySlug(this.id);
 					if (this.currentPromo === null || this.currentPromo === undefined) {
 						this.$router.replace({ path: '/promotions' });
