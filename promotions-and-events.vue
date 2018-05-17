@@ -123,6 +123,7 @@
             data: function () {
                 return {
                     dataLoaded: false,
+                    pageBanner: "",
                     toggleEvents: false,
                     togglePromos: false
                 }
