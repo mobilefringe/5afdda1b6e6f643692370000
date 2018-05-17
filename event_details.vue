@@ -88,11 +88,11 @@
                     console.log(this.currentEvent)
                     if(this.currentEvent != null) {
                         if (this.currentEvent.eventable_type === "Store"){
-                            if  (_.includes(this.currentEvent.promo_image_url_abs, 'missing')) {
+                            if (_.includes(this.currentEvent.event_image_url_abs, 'missing')) {
                                 this.currentEvent.image_url = this.currentEvent.store.store_front_url_abs; 
                             }
                         } else {
-                            if  (_.includes(this.currentEvent.promo_image_url_abs, 'missing')) {
+                            if (_.includes(this.currentEvent.event_image_url_abs, 'missing')) {
                                 this.currentEvent.image_url = "http://placehold.it/400x400";    
                             }
                         }
