@@ -91,6 +91,7 @@ define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "bootstrap-vue
                 ...Vuex.mapGetters([
                     'property',
                     'timezone',
+                    'findRepoByName',
                     'processedJobs'
                 ]),
                 jobList: function jobs() {
