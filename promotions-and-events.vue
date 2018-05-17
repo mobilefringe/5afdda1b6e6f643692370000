@@ -137,6 +137,7 @@
                 ...Vuex.mapGetters([
                     'property',
                     'timezone',
+                    'findRepoByName',
                     'processedEvents',
                     'processedPromos'
                 ]),
@@ -197,7 +198,7 @@
             methods: {
                 loadData: async function () {
                     try {
-                        let results = await Promise.all([this.$store.dispatch("getData", "events"), this.$store.dispatch("getData","promotions")]);
+                        let results = await Promise.all([this.$store.dispatch("getData", "repos"), this.$store.dispatch("getData", "events"), this.$store.dispatch("getData","promotions")]);
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
                     }
