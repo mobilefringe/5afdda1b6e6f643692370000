@@ -128,6 +128,7 @@
             data: function() {
                 return {
                     dataLoaded: false,
+                    pageBanner: "",
                     sortByStores: true,
                     listOne: null,
                     listTwo: null,
