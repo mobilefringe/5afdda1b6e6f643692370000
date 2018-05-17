@@ -31,6 +31,7 @@
             data: function data() {
                 return {
                     dataLoaded: false,
+                    pageBanner: "",
                     currentPage: null
                 }
             },
