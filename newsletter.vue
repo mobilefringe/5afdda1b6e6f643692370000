@@ -62,6 +62,7 @@
             data: function() {
                 return {
                     dataLoaded: true,
+                    pageBanner: "",
                     siteInfo: site,
                     form_data : {},
                     formSuccess : false,
