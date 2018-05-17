@@ -49,6 +49,11 @@
             },
             created() {
                 this.loadData().then(response => {
+                    var temp_repo = this.findRepoByName('Location Banner');
+                    if(temp_repo) {
+                        this.pageBanner = temp_repo.images[0];
+                    }
+                    
                     this.currentPage = response[1].data;
                     this.dataLoaded = true;
                 });
