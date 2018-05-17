@@ -69,6 +69,16 @@
                     formError: false
                 }
             },
+            created (){
+                this.loadData().then(response => {
+                    var temp_repo = this.findRepoByName('Directory Banner');
+                    if(temp_repo) {
+                        this.pageBanner = temp_repo.images[0];
+                    }
+
+                    this.dataLoaded = true;
+                });
+            },
             mounted () {
                 this.form_data.email = this.$route.query.email;
                 $("#newsletter_email").val(this.form_data.email);
