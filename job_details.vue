@@ -11,7 +11,7 @@
                 <div class="main_container mobile_padding margin_30">
                     <div class="details_row">
                         <div class="details_col_3 hidden_phone">
-                            <img class="img_max" src="http://placehold.it/440x1200" alt="" />    
+                            <img class="img_max" src="//codecloud.cdn.speedyrails.net/sites/5afdda1b6e6f643692370000/image/jpeg/1526584267000/side_banner3.jpg" alt="" />    
                         </div>
                         <div class="details_col_9" v-if="currentJob">
                             <router-link to="/jobs">
