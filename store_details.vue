@@ -144,6 +144,8 @@
                     this.updateCurrentStore(this.$route.params.id);
                 },
                 currentStore: function () {
+                    this.currentStore.zoom = 2;
+                    
                     if (_.includes(this.currentStore.store_front_url_abs, 'missing')) {
                         this.currentStore.store_front_url_abs = "http://placehold.it/600x600"
                     }
@@ -185,15 +187,7 @@
                     }); 
                     this.storeJobs = temp_job;
                     this.toggleJobs = true;
-                },
-                // map : function (){
-                    
-                //         var vm = this;
-                //         setTimeout(function () {
-                //             vm.dropPin();
-                //         }, 500);
-                   
-                // }
+                }
             },
             computed: {
                 ...Vuex.mapGetters([
@@ -217,6 +211,24 @@
                 },
                 pngMapRef() {
                     return this.$refs.pngmapref;
+                },
+                allStores() {
+                    this.processedStores.map(function(store){
+                        store.zoom = 4;
+                    })
+                    return this.processedStores;
+                },
+                floorList () {
+                    var floor_list = [];
+                    
+                    var floor_1 = {};
+                    floor_1.id = "first-floor";
+                    floor_1.title = "Level One";
+                    floor_1.map = this.getPNGurl;
+                    floor_1.z_index = 1;
+                    floor_1.show = true;
+                    floor_list.push(floor_1);
+                    return floor_list;
                 }
             },
             methods: {
@@ -233,13 +245,12 @@
                         this.$router.replace({ name: 'stores' });
                     }
                 },
-                addLandmark(store) {
-                    this.pngMapRef.addMarker(store);
-                },
                 updatePNGMap(map) {
                     this.map = map;
-                    // console.log("in updatepng");
-                    this.addLandmark(this.currentStore);
+                    this.dropPin(this.currentStore);
+                },
+                dropPin(store) {
+                    this.$refs.pngmap_ref.showLocation(store.id);
                 },
                 isMultiDay(promo) {
                     var timezone = this.timezone
