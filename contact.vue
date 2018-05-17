@@ -89,13 +89,18 @@
             },
             created() {
                 this.loadData().then(response => {
+                    var temp_repo = this.findRepoByName('Newsletter Banner');
+                    if(temp_repo) {
+                        this.pageBanner = temp_repo.images[0];
+                    }
                     // this.currentPage = response[0].data;
                     this.dataLoaded = true;
                 });
             },
             computed: {
                 ...Vuex.mapGetters([
-                    'property'
+                    'property',
+                    'findRepoByName'
                 ])
             },
             methods: {
