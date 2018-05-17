@@ -35,8 +35,16 @@
                     currentPage: null
                 }
             },
-            created() {
-                this.updateCurrentPage(this.id);
+            created(){
+                this.loadData().then(response => {
+                    var temp_repo = this.findRepoByName('Inside Page Banner');
+                    if(temp_repo) {
+                        this.pageBanner = temp_repo.images[0];
+                    }
+
+                    this.updateCurrentPage(this.id);
+                    this.dataLoaded = true;
+                });
             },
             watch: {
                 $route: function () {
