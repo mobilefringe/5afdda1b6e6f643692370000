@@ -46,6 +46,7 @@
             data: function() {
                 return {
                     dataLoaded: false,
+                    pageBanner: "",
                     pageBanner: ""
                 }
             },
