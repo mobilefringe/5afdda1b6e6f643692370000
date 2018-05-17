@@ -87,7 +87,7 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'vuex-router-syn
                         sub_menu: [
                             {
                                 name: "Services",
-                                href: "/pages/"
+                                href: "/pages/casas-services"
                             },
                             {
                                 name: "Newsletter",
@@ -110,11 +110,11 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'vuex-router-syn
                             },
                             {
                                 name: "Management",
-                                href: "/pages/"
+                                href: "/pages/casas-management"
                             },
                             {
                                 name: "Leasing",
-                                href: "/pages/"
+                                href: "/pages/casas-leasing"
                             }
                         ]
                     }
