@@ -26,7 +26,7 @@
                         </div>
                         <div class="details_col_9">
                             <div id="map" class="margin_20">
-                                <svg-map  ref="svgmapRef"  @updateMap="updateSVGMap"  :svgMapUrl="getSVGurl" ></svg-map>
+                                <png-map ref="pngmapref" v-bind:png-map-url="getPNGurl" v-bind:initial-position="'500 400'" @updateMap="updatePNGMap" :key="currentStore.id"></png-map>
                             </div>
                             <div class="inside_page_header">Store Hours & Information</div>
                             <ul v-if="storeHours" class="store_details_hours_list">
@@ -38,7 +38,6 @@
                                         <span class="hours_list_day">{{hour.day_of_week | moment("dddd", timezone)}} </span>CLOSED
                                     </div>
                                 </li>
-                                
                             </ul>
                             <div class=" margin_30 store_details_desc" v-html="currentStore.rich_description"></div>
                             <div v-if="this.currentStore.promotions">
