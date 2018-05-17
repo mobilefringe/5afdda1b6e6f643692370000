@@ -118,6 +118,7 @@
             data: function () {
                 return {
                     dataLoaded: false,
+                    pageBanner: "",
                     currentStore: null,
                     storeHours: null,
                     storePromotions: null,
@@ -130,8 +131,13 @@
             props:['id'],
             created (){
                 this.loadData().then(response => {
-                    this.dataLoaded = true;
+                    var temp_repo = this.findRepoByName('Directory Banner');
+                    if(temp_repo) {
+                        this.pageBanner = temp_repo.images[0];
+                    }
+                    
                     this.updateCurrentStore(this.id);
+                    this.dataLoaded = true;
                 });
             },
             watch: {
