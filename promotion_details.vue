@@ -83,7 +83,6 @@
 			},
 			watch: {
                 currentPromo : function (){
-                    console.log(this.currentPromo)
                     if(this.currentPromo != null) {
                         if (this.currentPromo.promotionable_type === "Store"){
                             if  (_.includes(this.currentPromo.promo_image_url_abs, 'missing')) {
