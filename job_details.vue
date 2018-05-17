@@ -57,6 +57,7 @@
             data: function() {
                 return {
                     dataLoaded: false,
+                    pageBanner: "",
                     currentJob: null,
                     siteInfo: site,
                 }
