@@ -125,26 +125,26 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'vuex-router-syn
                         url: "https://www.facebook.com/pages/Casas-Adobes-Plaza/181941735173506",
                         iconClass: "fab fa-facebook-f"
                     },
-                    {
-                        name: "Twitter",
-                        url: "https://twitter.com",
-                        iconClass: "fab fa-twitter"
-                    },
-                    {
-                        name: "Instagram",
-                        url: "https://www.instagram.com",
-                        iconClass: "fab fa-instagram"
-                    },
-                    {
-                        name: "SnapChat",
-                        url: "",
-                        iconClass: "fab fa-snapchat-ghost"
-                    },
-                    {
-                        name: "YouTube",
-                        url: "https://www.youtube.com/",
-                        iconClass: "fab fa-youtube"
-                    }
+                    // {
+                    //     name: "Twitter",
+                    //     url: "https://twitter.com",
+                    //     iconClass: "fab fa-twitter"
+                    // },
+                    // {
+                    //     name: "Instagram",
+                    //     url: "https://www.instagram.com",
+                    //     iconClass: "fab fa-instagram"
+                    // },
+                    // {
+                    //     name: "SnapChat",
+                    //     url: "",
+                    //     iconClass: "fab fa-snapchat-ghost"
+                    // },
+                    // {
+                    //     name: "YouTube",
+                    //     url: "https://www.youtube.com/",
+                    //     iconClass: "fab fa-youtube"
+                    // }
                 ],
             }
         },
