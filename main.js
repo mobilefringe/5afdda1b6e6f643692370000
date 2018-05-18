@@ -122,7 +122,7 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'vuex-router-syn
                 social_media: [
                     {
                         name: "Facebook",
-                        url: "https://www.facebook.com",
+                        url: "https://www.facebook.com/pages/Casas-Adobes-Plaza/181941735173506",
                         iconClass: "fab fa-facebook-f"
                     },
                     {
