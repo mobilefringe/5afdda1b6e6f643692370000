@@ -85,10 +85,10 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'vuex-router-syn
                         id: "menu1",
                         href: "",
                         sub_menu: [
-                            {
-                                name: "Services",
-                                href: "/pages/casas-services"
-                            },
+                            // {
+                            //     name: "Services",
+                            //     href: "/pages/casas-services"
+                            // },
                             {
                                 name: "Newsletter",
                                 href: "/newsletter"
@@ -112,10 +112,10 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'vuex-router-syn
                                 name: "Management",
                                 href: "/pages/casas-management"
                             },
-                            {
-                                name: "Leasing",
-                                href: "/pages/casas-leasing"
-                            }
+                            // {
+                            //     name: "Leasing",
+                            //     href: "/pages/casas-leasing"
+                            // }
                         ]
                     }
                 ],
