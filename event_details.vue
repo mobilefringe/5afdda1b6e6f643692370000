@@ -79,6 +79,13 @@
 					console.error("Could not retrieve data from server. Please check internet connection and try again.");
 				});
 			},
+			watch: {
+				currentEvent: function() {
+				    if (_.includes(this.currentEvent.image_url, 'missing')) {
+                        this.currentEvent.image_url = "//codecloud.cdn.speedyrails.net/sites/5acbda8d6e6f64670f1a0000/image/png/1527612896000/milton_logo.png";
+                    }
+				}
+			},
 			computed: {
 				...Vuex.mapGetters([
 					'property',
