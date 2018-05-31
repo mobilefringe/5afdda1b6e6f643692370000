@@ -81,6 +81,7 @@
                 ...Vuex.mapGetters([
                     'property',
                     'timezone',
+                    'findRepoByName',
                     'findPromoBySlug'
                 ])
             },
