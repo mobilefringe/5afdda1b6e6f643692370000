@@ -134,7 +134,6 @@
                     if(temp_repo) {
                         this.pageBanner = temp_repo.images[0];
                     }
-                    this.currentPage = response[1].data;
                     this.dataLoaded = true;
                 });
             },
