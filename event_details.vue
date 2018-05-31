@@ -49,5 +49,58 @@
 </template>
 
 <script>
-var _extends=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e};define(["Vue","vuex","moment","moment-timezone","vue-moment","vue-lazy-load","vue-social-sharing","json!site.json"],function(e,t,n,r,a,o,i,s){return e.use(o),e.component("social-sharing",i),e.component("event-details-component",{template:template,props:["id"],data:function(){return{dataLoaded:!1,pageBanner:"",currentEvent:null,siteInfo:s}},created:function(){var e=this;this.$store.dispatch("getData","repos").then(function(){var t=e.findRepoByName("Promos & Events Banner");t&&(e.pageBanner=t.images[0])},function(){console.error("Could not retrieve data from server. Please check internet connection and try again.")}),this.$store.dispatch("getData","events").then(function(){e.currentEvent=e.findEventBySlug(e.id),(null===e.currentEvent||void 0===e.currentEvent)&&e.$router.replace({name:"404"}),e.dataLoaded=!0},function(){console.error("Could not retrieve data from server. Please check internet connection and try again.")})},watch:{currentEvent:function(){null!=this.currentEvent&&("Store"===this.currentEvent.eventable_type?_.includes(this.currentEvent.event_image_url_abs,"missing")&&(this.currentEvent.image_url=this.currentEvent.store.store_front_url_abs):_.includes(this.currentEvent.event_image_url_abs,"missing")&&(this.currentEvent.image_url="http://placehold.it/400x400"))}},computed:_extends({},t.mapGetters(["property","timezone","findRepoByName","processedEvents","findEventBySlug"])),methods:{isMultiDay:function(e){var t=this.timezone,r=n(e.start_date).tz(t).format("MM-DD-YYYY"),a=n(e.end_date).tz(t).format("MM-DD-YYYY");return r===a?!1:!0},truncate:function u(e){var u=_.truncate(e,{length:99,separator:" "});return u},shareURL:function(){var e=window.location.href;return e}}})});
+	define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "vue-lazy-load",  "vue-social-sharing", "json!site.json"], function(Vue, Vuex, moment, tz, VueMoment, VueLazyload, SocialSharing, site) {
+        Vue.use(VueLazyload);
+        Vue.component('social-sharing', SocialSharing);
+		return Vue.component("event-details-component", {
+			template: template, // the variable template will be injected,
+			props: ['id'],
+			data: function() {
+				return {
+					dataLoaded: false,
+					currentEvent: null,
+				    siteInfo: site,
+				}
+			},
+			created() {
+				this.$store.dispatch("getData", "events").then(response => {
+					this.currentEvent = this.findEventBySlug(this.id);
+					if (this.currentEvent === null || this.currentEvent === undefined) {
+						this.$router.replace({ name: '404' });
+					}
+					this.dataLoaded = true;
+				}, error => {
+					console.error("Could not retrieve data from server. Please check internet connection and try again.");
+				});
+			},
+			computed: {
+				...Vuex.mapGetters([
+					'property',
+					'timezone',
+					'processedEvents',
+					'findEventBySlug',
+				])
+			},
+			methods: {
+				isMultiDay(currentEvent) {
+					var timezone = this.timezone
+					var start_date = moment(currentEvent.start_date).tz(timezone).format("MM-DD-YYYY")
+					var end_date = moment(currentEvent.end_date).tz(timezone).format("MM-DD-YYYY")
+					if (start_date === end_date) {
+						return false
+					} else {
+						return true
+					}
+				},
+				truncate(val_body) {
+                    var truncate = _.truncate(val_body, { 'length': 99, 'separator': ' ' });
+                    return truncate;
+                },
+				shareURL(slug) {
+                    var share_url = window.location.href
+                    return share_url
+                },
+			}
+		});
+	});
 </script>
