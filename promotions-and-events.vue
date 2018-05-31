@@ -174,11 +174,11 @@
                         var showOnWebDate = moment.tz(value.show_on_web_date, this.timezone).format();
                         if (today >= showOnWebDate) {
                             if (value.store != null && value.store != undefined && _.includes(value.store.image_url, 'missing')) {
-                                value.store.image_url = "http://placehold.it/400x400";
+                                value.store.image_url = "https://placehold.it/400x400";
                             }
                             
                             if (_.includes(value.image_url, 'missing')) {
-                                value.image_url = "http://placehold.it/400x400";
+                                value.image_url = "https://placehold.it/400x400";
                             }
                             
                             value.description_short = _.truncate(value.description, { 'length': 100, 'separator': ' ' });
