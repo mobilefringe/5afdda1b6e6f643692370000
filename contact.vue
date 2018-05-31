@@ -16,6 +16,7 @@
                         <div class="details_col_9">
                             <div class="row">
                                 <div class="col-md-12">
+                                    <div class="inside_page_header">Contact Us</div>
                                     <p>We value your feedback. Send us your comments or questions by completing the contact form below.</p>    
                                 </div>
                                 <form class="form-horizontal clearfix" action="form-submit" v-on:submit.prevent="validateBeforeSubmit">
