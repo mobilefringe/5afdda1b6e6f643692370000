@@ -80,6 +80,7 @@
                 return {
                     dataLoaded: false,
                     pageBanner: "",
+                    currentPage: null,
                     form_data: {},
                     loginPending: null,
                     formSuccess: false,
