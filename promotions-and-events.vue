@@ -115,5 +115,104 @@
 </template>
 
 <script>
-var _extends=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var r=arguments[t];for(var o in r)Object.prototype.hasOwnProperty.call(r,o)&&(e[o]=r[o])}return e};define(["Vue","vuex","moment","moment-timezone","vue-moment","vue-lazy-load","bootstrap-vue"],function(e,t,r,o,n,a,s){return e.use(s),e.use(a),e.component("promotions-and-events-component",{template:template,data:function(){return{dataLoaded:!1,pageBanner:"",toggleEvents:!1,togglePromos:!1}},created:function(){var e=this;this.loadData().then(function(){var t=e.findRepoByName("Promos & Events Banner");t&&(e.pageBanner=t.images[0]),e.dataLoaded=!0})},computed:_extends({},t.mapGetters(["property","timezone","findRepoByName","processedEvents","processedPromos"]),{eventList:function i(){var i=this.processedEvents,e=[];_.forEach(i,function(t){var o=r.tz(this.timezone).format(),n=r.tz(t.show_on_web_date,this.timezone).format();o>=n&&(null!=t.store&&void 0!=t.store&&_.includes(t.store.image_url,"missing")&&(t.store.image_url="http://placehold.it/400x400"),_.includes(t.image_url,"missing")&&(t.image_url="http://placehold.it/400x400"),t.description_short=_.truncate(t.description,{length:100,separator:" "}),e.push(t))});var t=_.orderBy(e,function(e){return e.end_date});return t.length>0&&(this.toggleEvents=!0),t},promoList:function(){var e=[];_.forEach(this.processedPromos,function(t){var o=r.tz(this.timezone).format(),n=r.tz(t.show_on_web_date,this.timezone).format();o>=n&&(null!=t.store&&void 0!=t.store&&_.includes(t.store.image_url,"missing")&&(t.store.image_url="http://placehold.it/400x400"),_.includes(t.image_url,"missing")&&(t.image_url="http://placehold.it/400x400"),t.description_short=_.truncate(t.description,{length:100,separator:" "}),e.push(t))});var t=_.orderBy(e,[function(e){return e.end_date}]);return t.length>0&&(this.togglePromos=!0),t}}),methods:{loadData:function(){var e;return regeneratorRuntime.async(function(t){for(;;)switch(t.prev=t.next){case 0:return t.prev=0,t.next=3,regeneratorRuntime.awrap(Promise.all([this.$store.dispatch("getData","repos"),this.$store.dispatch("getData","events"),this.$store.dispatch("getData","promotions")]));case 3:e=t.sent,t.next=9;break;case 6:t.prev=6,t.t0=t["catch"](0),console.log("Error loading data: "+t.t0.message);case 9:case"end":return t.stop()}},null,this,[[0,6]])},isMultiDay:function(e){var t=this.timezone,o=r(e.start_date).tz(t).format("MM-DD-YYYY"),n=r(e.end_date).tz(t).format("MM-DD-YYYY");return o===n?!1:!0}}})});
+    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "vue-lazy-load", "bootstrap-vue"], function (Vue, Vuex, moment, tz, VueMoment, VueLazyload, BootstrapVue) {
+        Vue.use(BootstrapVue);
+        Vue.use(VueLazyload);
+        return Vue.component("promotions-and-events-component", {
+            template: template, // the variable template will be injected,
+            data: function () {
+                return {
+                    dataLoaded: false,
+                    toggleEvents: false,
+                    togglePromos: false
+                }
+            },
+            created (){
+                this.loadData().then(response => {
+                    this.dataLoaded = true;
+                });
+            },
+            computed: {
+                ...Vuex.mapGetters([
+                    'property',
+                    'timezone',
+                    'processedEvents',
+                    'processedPromos'
+                ]),
+                eventList: function events() {
+                    var events = this.processedEvents;
+                    var showEvents = [];
+                    _.forEach(events, function (value, key) {
+                        var today = moment.tz(this.timezone).format();
+                        var showOnWebDate = moment.tz(value.show_on_web_date, this.timezone).format();
+                        if (today >= showOnWebDate) {
+                            if (value.store != null && value.store != undefined && _.includes(value.store.image_url, 'missing')) {
+                                value.store.image_url = "https://placehold.it/400x400";
+                            }
+                            
+                            if (_.includes(value.image_url, 'missing')) {
+                                value.image_url = "https://placehold.it/400x400";
+                            }
+                            
+                            value.description_short = _.truncate(value.description, { 'length': 100, 'separator': ' ' });
+                            
+                            showEvents.push(value);
+                        }
+                    });
+                    var sortedEvents = _.orderBy(showEvents, function (o) { return o.end_date });
+                    if (sortedEvents.length > 0) {
+                        this.toggleEvents = true;
+                    }
+                    return sortedEvents
+                    
+                },
+                promoList: function promos() {
+                    var vm = this;
+                    var showPromos = [];
+                    _.forEach(this.processedPromos, function(value, key) {
+                        var today = moment.tz(this.timezone).format();
+                        var showOnWebDate = moment.tz(value.show_on_web_date, this.timezone).format();
+                        if (today >= showOnWebDate) {
+                            if (value.store != null && value.store != undefined && _.includes(value.store.image_url, 'missing')) {
+                                value.store.image_url = "http://placehold.it/400x400";
+                            }
+                            
+                            if (_.includes(value.image_url, 'missing')) {
+                                value.image_url = "http://placehold.it/400x400";
+                            }
+                            
+                            value.description_short = _.truncate(value.description, { 'length': 100, 'separator': ' ' });
+                            
+                            showPromos.push(value);
+                        }
+                    });
+                    var sortedPromos = _.orderBy(showPromos, [function(o) { return o.end_date; }]);
+                    if (sortedPromos.length > 0) {
+                        this.togglePromos = true;
+                    }
+                    return sortedPromos;
+                }
+            },
+            methods: {
+                loadData: async function () {
+                    try {
+                        let results = await Promise.all([this.$store.dispatch("getData", "events"), this.$store.dispatch("getData","promotions")]);
+                    } catch (e) {
+                        console.log("Error loading data: " + e.message);
+                    }
+                },
+                isMultiDay(promo) {
+                    var timezone = this.timezone
+                    var start_date = moment(promo.start_date).tz(timezone).format("MM-DD-YYYY")
+                    var end_date = moment(promo.end_date).tz(timezone).format("MM-DD-YYYY")
+                    if (start_date === end_date) {
+                        return false
+                    } else {
+                        return true
+                    }
+                }
+            }
+        });
+    });
 </script>
+
