@@ -24,5 +24,42 @@
 </template>
 
 <script>
-var _extends=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var a=arguments[t];for(var r in a)Object.prototype.hasOwnProperty.call(a,r)&&(e[r]=a[r])}return e};define(["Vue","vuex"],function(e,t){return e.component("page-details-component",{template:template,props:["id"],data:function(){return{dataLoaded:!1,pageBanner:"",currentPage:null}},created:function(){var e=this;this.loadData().then(function(){var t=e.findRepoByName("Inside Page Banner");t&&(e.pageBanner=t.images[0]),e.updateCurrentPage(e.id),e.dataLoaded=!0})},watch:{$route:function(){this.updateCurrentPage(this.$route.params.id)}},computed:_extends({},t.mapGetters(["property","findRepoByName"])),methods:{loadData:function(){var e;return regeneratorRuntime.async(function(t){for(;;)switch(t.prev=t.next){case 0:return t.prev=0,t.next=3,regeneratorRuntime.awrap(Promise.all([this.$store.dispatch("getData","repos")]));case 3:return e=t.sent,t.abrupt("return",e);case 7:t.prev=7,t.t0=t["catch"](0),console.log("Error loading data: "+t.t0.message);case 10:case"end":return t.stop()}},null,this,[[0,7]])},updateCurrentPage:function(){var e=this;this.$store.dispatch("LOAD_PAGE_DATA",{url:this.property.mm_host+"/pages/"+this.id+".json"}).then(function(t){e.currentPage=t.data,e.dataLoaded=!0},function(){console.error("Could not retrieve data from server. Please check internet connection and try again."),e.$router.replace({name:"404"})})}}})});
+    define(["Vue", "vuex"], function (Vue, Vuex) {
+        return Vue.component("page-details-component", {
+            template: template, // the variable template will be injected,
+            props: ['id'],
+            data: function data() {
+                return {
+                    dataLoaded: false,
+                    currentPage: null
+                }
+            },
+            created() {
+                this.updateCurrentPage(this.id);
+            },
+            watch: {
+                $route: function () {
+                    this.updateCurrentPage(this.$route.params.id);
+                }
+            },
+            computed: {
+                ...Vuex.mapGetters([
+                    'property'
+                ])
+            },
+            methods: {
+                updateCurrentPage(id) {
+                    this.property.mm_host = this.property.mm_host.replace("http:", "");
+                    var _this = this;
+                    this.$store.dispatch('LOAD_PAGE_DATA', { url: this.property.mm_host + "/pages/" + this.id + ".json" }).then(function (response) {
+                        _this.currentPage = response.data;
+                        _this.dataLoaded = true;
+                    }, function (error) {
+                        console.error( "Could not retrieve data from server. Please check internet connection and try again.");
+                        _this.$router.replace({ name: '404' });
+                    });
+                }
+            }
+        });
+    });
 </script>
