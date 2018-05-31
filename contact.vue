@@ -71,8 +71,7 @@
     </div>
 </template>
 <script>
-    define(["Vue", "vuex", "vue-meta", "vee-validate"], function (Vue, Vuex, Meta, VeeValidate) {
-        Vue.use(Meta);
+    define(["Vue", "vuex", "vee-validate"], function (Vue, Vuex, VeeValidate) {
         Vue.use(VeeValidate);
         return Vue.component("contact-component", {
             template: template, // the variable template will be injected
