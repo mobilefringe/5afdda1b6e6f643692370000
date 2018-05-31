@@ -154,11 +154,11 @@
                         var showOnWebDate = moment.tz(value.show_on_web_date, this.timezone).format();
                         if (today >= showOnWebDate) {
                             if (value.store != null && value.store != undefined && _.includes(value.store.image_url, 'missing')) {
-                                value.store.image_url = "https://placehold.it/400x400";
+                                value.store.image_url = "//codecloud.cdn.speedyrails.net/sites/5afdda1b6e6f643692370000/image/jpeg/1527795749000/PlaceHolder4.jpg;
                             }
                             
                             if (_.includes(value.image_url, 'missing')) {
-                                value.image_url = "https://placehold.it/400x400";
+                                value.image_url = "//codecloud.cdn.speedyrails.net/sites/5afdda1b6e6f643692370000/image/jpeg/1527795749000/PlaceHolder4.jpg";
                             }
                             
                             value.description_short = _.truncate(value.description, { 'length': 100, 'separator': ' ' });
