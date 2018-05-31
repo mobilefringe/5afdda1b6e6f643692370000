@@ -31,10 +31,16 @@
             data: function data() {
                 return {
                     dataLoaded: false,
+                    pageBanner: "",
                     currentPage: null
                 }
             },
             created() {
+                var temp_repo = this.findRepoByName('Promos & Events Banner');
+                if(temp_repo) {
+                    this.pageBanner = temp_repo.images[0];
+                }
+                    
                 this.updateCurrentPage(this.id);
             },
             watch: {
