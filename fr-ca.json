@@ -1,0 +1,38 @@
+{
+    "header": {
+        "newsletter-join": "Rejoignez notre newsletter!",
+        "newsletter-subscribe": "Souscrire"
+    },
+    "menu": {
+        "store-directory": "Commercial",
+        "stores": "Magasins",
+        "centre-map": "Carte du Center",
+        "events": "Événements",
+        "promotions": "Promotions",
+        "leasing": "Location",
+        "photos": "Photos",
+        "contact": "Contactez nous",
+        "find": "Trouve nous",
+        "about": "À propos de nous",
+        "jobs": "Emplois",
+        "hours": "Heures de magasinage",
+        "community": "Communauté"
+    },
+    "hours": {
+        "hours-title": "Heures",
+        "hours-mon": "Lundi - Vendredi",
+        "hours-sat": "Samedi",
+        "hours-sun": "Dimanche",
+        "stores-title": "Magasins"
+    },
+    "footer": {
+        "menu-link1": "Un",
+        "menu-link2": "Deux",
+        "menu-link3": "Trois",
+        "menu-link4": "Quatre",
+        "menu-link5": "Cinq",
+        "menu-link6": "Six",
+        "powered-by": "Alimenté par ",
+        "privacy-policy": "Politique de confidentialité"
+    }
+}
