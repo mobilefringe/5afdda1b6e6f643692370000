@@ -65,11 +65,13 @@
 				}
 			},
 			created() {
-				this.$store.dispatch("getData", "events").then(response => {
-				    var temp_repo = this.findRepoByName('Promos & Events Banner');
+			    var temp_repo = this.findRepoByName('Promos & Events Banner');
                     if(temp_repo) {
                         this.pageBanner = temp_repo.images[0];
                     }
+                    
+				this.$store.dispatch("getData", "events").then(response => {
+				    
                     
 					this.currentEvent = this.findEventBySlug(this.id);
 					if (this.currentEvent === null || this.currentEvent === undefined) {
