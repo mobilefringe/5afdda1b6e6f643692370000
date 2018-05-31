@@ -48,5 +48,68 @@
 </template>
 
 <script>
-var _extends=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e};define(["Vue","vuex","moment","moment-timezone","vue-moment","vue-lazy-load","vue-social-sharing","json!site.json"],function(e,t,n,r,o,a,i,s){return e.use(a),e.component("social-sharing",i),e.component("job-details-component",{template:template,props:["id"],data:function(){return{dataLoaded:!1,pageBanner:"",currentJob:null,siteInfo:s}},created:function(){var e=this;this.$store.dispatch("getData","repos").then(function(){var t=e.findRepoByName("Jobs Banner");t&&(e.pageBanner=t.images[0])},function(){console.error("Could not retrieve data from server. Please check internet connection and try again.")}),this.$store.dispatch("getData","jobs").then(function(){e.currentJob=e.findJobBySlug(e.id),(null===e.currentJob||void 0===e.currentJob)&&e.$router.replace({path:"/jobs"}),e.dataLoaded=!0},function(){console.error("Could not retrieve data from server. Please check internet connection and try again.")})},computed:_extends({},t.mapGetters(["property","timezone","findRepoByName","findJobBySlug"])),methods:{isMultiDay:function(e){var t=this.timezone,r=n(e.start_date).tz(t).format("MM-DD-YYYY"),o=n(e.end_date).tz(t).format("MM-DD-YYYY");return r===o?!1:!0},truncate:function c(e){var c=_.truncate(e,{length:99,separator:" "});return c},shareURL:function(){var e=window.location.href;return e}}})});
+    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "vue-lazy-load",  "vue-social-sharing", "json!site.json"], function(Vue, Vuex, moment, tz, VueMoment, VueLazyload, SocialSharing, site) {
+        Vue.use(VueLazyload);
+        Vue.component('social-sharing', SocialSharing);
+        return Vue.component("job-details-component", {
+            template: template, // the variable template will be injected,
+            props: ['id'],
+            data: function() {
+                return {
+                    dataLoaded: false,
+                    pageBanner: "",
+                    currentJob: null,
+                    siteInfo: site,
+                }
+            },
+            created() {
+                this.$store.dispatch("getData", "repos").then(response => {
+					var temp_repo = this.findRepoByName('Jobs Banner');
+                    if(temp_repo) {
+                        this.pageBanner = temp_repo.images[0];
+                    }
+				}, error => {
+					console.error("Could not retrieve data from server. Please check internet connection and try again.");
+				});
+				
+				this.$store.dispatch("getData", "jobs").then(response => {
+					this.currentJob = this.findJobBySlug(this.id);
+					if (this.currentJob === null || this.currentJob === undefined) {
+						this.$router.replace({ path: '/jobs' });
+					}
+					this.dataLoaded = true;
+				}, error => {
+					console.error("Could not retrieve data from server. Please check internet connection and try again.");
+				});
+			},
+            computed: {
+                ...Vuex.mapGetters([
+                    'property',
+                    'timezone',
+                    'findRepoByName',
+                    'findJobBySlug'
+                ])
+            },
+            methods: {
+				isMultiDay(currentJob) {
+					var timezone = this.timezone
+					var start_date = moment(currentJob.start_date).tz(timezone).format("MM-DD-YYYY")
+					var end_date = moment(currentJob.end_date).tz(timezone).format("MM-DD-YYYY")
+					if (start_date === end_date) {
+						return false
+					} else {
+						return true
+					}
+				},
+				truncate(val_body) {
+                    var truncate = _.truncate(val_body, { 'length': 99, 'separator': ' ' });
+                    return truncate;
+                },
+				shareURL(slug) {
+                    var share_url = window.location.href
+                    return share_url
+                }
+			}
+        });
+    });
 </script>
