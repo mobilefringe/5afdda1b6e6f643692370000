@@ -90,7 +90,7 @@
                             }
                         } else {
                             if  (_.includes(this.currentPromo.promo_image_url_abs, 'missing')) {
-                                this.currentPromo.image_url = "https://placehold.it/400x400";    
+                                this.currentPromo.image_url = "//codecloud.cdn.speedyrails.net/sites/5afdda1b6e6f643692370000/image/jpeg/1527800297000/PlaceHolder2.jpg";    
                             }
                         }
                     }
