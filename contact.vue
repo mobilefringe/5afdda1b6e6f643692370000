@@ -94,7 +94,7 @@
                     if(temp_repo) {
                         this.pageBanner = temp_repo.images[0];
                     }
-                    this.currentPage = response[0].data;
+                    this.currentPage = response[1].data;
                     console.log(this.currentPage)
                     this.dataLoaded = true;
                 });
