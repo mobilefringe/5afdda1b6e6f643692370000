@@ -65,11 +65,7 @@
 				}
 			},
 			created() {
-			    var temp_repo = this.findRepoByName('Promos & Events Banner');
-			    console.log(temp_repo)
-                if(temp_repo) {
-                    this.pageBanner = temp_repo.images[0];
-                }
+			    
                     
 				this.$store.dispatch("getData", "events").then(response => {
 				    
@@ -78,6 +74,14 @@
 					if (this.currentEvent === null || this.currentEvent === undefined) {
 						this.$router.replace({ name: '404' });
 					}
+					
+					await Promise.all([this.$store.dispatch("getData", "repos")]);
+					var temp_repo = this.findRepoByName('Promos & Events Banner');
+    			    console.log(temp_repo)
+                    if(temp_repo) {
+                        this.pageBanner = temp_repo.images[0];
+                    }
+                
 					this.dataLoaded = true;
 				}, error => {
 					console.error("Could not retrieve data from server. Please check internet connection and try again.");
