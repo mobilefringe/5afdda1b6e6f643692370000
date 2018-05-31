@@ -56,12 +56,18 @@
             data: function() {
                 return {
                     dataLoaded: false,
+                    pageBanner: "",
                     currentPromo: null,
                     siteInfo: site
                 }
             },
             created() {
 				this.$store.dispatch("getData", "promotions").then(response => {
+				    var temp_repo = this.findRepoByName('Promos & Events Banner');
+                    if(temp_repo) {
+                        this.pageBanner = temp_repo.images[0];
+                    }
+                    
 					this.currentPromo = this.findPromoBySlug(this.id);
 					if (this.currentPromo === null || this.currentPromo === undefined) {
 						this.$router.replace({ path: '/promotions' });
