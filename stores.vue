@@ -17,7 +17,7 @@
                                 <a class="store_nav_link active_store_nav" href="/stores">Directory</a>
                             </div>
                             <div class="col-md-3">
-                                <a class="store_nav_link" href="/map">Centre Map</a>
+                                <a class="store_nav_link" href="/map">Center Map</a>
                             </div>
                             <div class="col-md-3">
                                 <span>Sort By: </span>
@@ -164,7 +164,7 @@
                     var listTwo = [];
                     _.forEach( this.processedStores , function( value, key ) {
                         var starter = "A";
-                        var breaker = "o";
+                        var breaker = "O";
                         var store_initial = _.toUpper(value.name[0]);
                         if (store_initial.charCodeAt(0) <= breaker.charCodeAt(0) && store_initial.charCodeAt(0) >= starter.charCodeAt(0)){
                             listOne.push(value);
