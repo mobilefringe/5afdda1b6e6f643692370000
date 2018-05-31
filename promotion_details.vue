@@ -61,20 +61,17 @@
                     siteInfo: site
                 }
             },
-            watch: {
-				currentPromo: function() {
-				    if (_.includes(this.currentPromo.image_url, 'missing')) {
-                        this.currentPromo.image_url = "//codecloud.cdn.speedyrails.net/sites/5acbda8d6e6f64670f1a0000/image/png/1527612896000/milton_logo.png";
-                    }
-				}
-			},
             created() {
-				this.$store.dispatch("getData", "promotions").then(response => {
-				    var temp_repo = this.findRepoByName('Promos & Events Banner');
+                this.$store.dispatch("getData", "repos").then(response => {
+					var temp_repo = this.findRepoByName('Promos & Events Banner');
                     if(temp_repo) {
                         this.pageBanner = temp_repo.images[0];
                     }
-                    
+				}, error => {
+					console.error("Could not retrieve data from server. Please check internet connection and try again.");
+				});
+				
+				this.$store.dispatch("getData", "promotions").then(response => {
 					this.currentPromo = this.findPromoBySlug(this.id);
 					if (this.currentPromo === null || this.currentPromo === undefined) {
 						this.$router.replace({ path: '/promotions' });
@@ -84,6 +81,21 @@
 					console.error("Could not retrieve data from server. Please check internet connection and try again.");
 				});
 			},
+			watch: {
+                currentPromo : function (){
+                    if(this.currentPromo != null) {
+                        if (this.currentPromo.promotionable_type === "Store"){
+                            if  (_.includes(this.currentPromo.promo_image_url_abs, 'missing')) {
+                                this.currentPromo.image_url = this.currentPromo.store.store_front_url_abs; 
+                            }
+                        } else {
+                            if  (_.includes(this.currentPromo.promo_image_url_abs, 'missing')) {
+                                this.currentPromo.image_url = "http://placehold.it/400x400";    
+                            }
+                        }
+                    }
+                }
+            },
             computed: {
                 ...Vuex.mapGetters([
                     'property',
@@ -93,13 +105,6 @@
                 ])
             },
             methods: {
-                loadData: async function () {
-                    try {
-                        let results = await Promise.all([this.$store.dispatch("getData", "repos")]);
-                    } catch (e) {
-                        console.log("Error loading data: " + e.message);
-                    }
-                },
 				isMultiDay(currentPromo) {
 					var timezone = this.timezone
 					var start_date = moment(currentPromo.start_date).tz(timezone).format("MM-DD-YYYY")
