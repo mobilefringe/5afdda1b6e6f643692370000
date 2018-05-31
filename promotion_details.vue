@@ -47,5 +47,57 @@
 </template>
 
 <script>
-var _extends=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var r=arguments[t];for(var o in r)Object.prototype.hasOwnProperty.call(r,o)&&(e[o]=r[o])}return e};define(["Vue","vuex","moment","moment-timezone","vue-moment","vue-lazy-load","vue-social-sharing","json!site.json"],function(e,t,r,o,n,a,i,s){return e.use(a),e.component("social-sharing",i),e.component("promo-details-component",{template:template,props:["id"],data:function(){return{dataLoaded:!1,pageBanner:"",currentPromo:null,siteInfo:s}},created:function(){var e=this;this.$store.dispatch("getData","repos").then(function(){var t=e.findRepoByName("Promos & Events Banner");t&&(e.pageBanner=t.images[0])},function(){console.error("Could not retrieve data from server. Please check internet connection and try again.")}),this.$store.dispatch("getData","promotions").then(function(){e.currentPromo=e.findPromoBySlug(e.id),(null===e.currentPromo||void 0===e.currentPromo)&&e.$router.replace({path:"/promotions"}),e.dataLoaded=!0},function(){console.error("Could not retrieve data from server. Please check internet connection and try again.")})},watch:{currentPromo:function(){null!=this.currentPromo&&("Store"===this.currentPromo.promotionable_type?_.includes(this.currentPromo.promo_image_url_abs,"missing")&&(this.currentPromo.image_url=this.currentPromo.store.store_front_url_abs):_.includes(this.currentPromo.promo_image_url_abs,"missing")&&(this.currentPromo.image_url="http://placehold.it/400x400"))}},computed:_extends({},t.mapGetters(["property","timezone","findRepoByName","findPromoBySlug"])),methods:{isMultiDay:function(e){var t=this.timezone,o=r(e.start_date).tz(t).format("MM-DD-YYYY"),n=r(e.end_date).tz(t).format("MM-DD-YYYY");return o===n?!1:!0},truncate:function u(e){var u=_.truncate(e,{length:99,separator:" "});return u},shareURL:function(){var e=window.location.href;return e}}})});
+    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "vue-lazy-load",  "vue-social-sharing", "json!site.json"], function(Vue, Vuex, moment, tz, VueMoment, VueLazyload, SocialSharing, site) {
+        Vue.use(VueLazyload);
+        Vue.component('social-sharing', SocialSharing);
+        return Vue.component("promo-details-component", {
+            template: template, // the variable template will be injected,
+            props: ['id'],
+            data: function() {
+                return {
+                    dataLoaded: false,
+                    currentPromo: null,
+                    siteInfo: site
+                }
+            },
+            created() {
+				this.$store.dispatch("getData", "promotions").then(response => {
+					this.currentPromo = this.findPromoBySlug(this.id);
+					if (this.currentPromo === null || this.currentPromo === undefined) {
+						this.$router.replace({ path: '/promotions' });
+					}
+					this.dataLoaded = true;
+				}, error => {
+					console.error("Could not retrieve data from server. Please check internet connection and try again.");
+				});
+			},
+            computed: {
+                ...Vuex.mapGetters([
+                    'property',
+                    'timezone',
+                    'findPromoBySlug'
+                ])
+            },
+            methods: {
+				isMultiDay(currentPromo) {
+					var timezone = this.timezone
+					var start_date = moment(currentPromo.start_date).tz(timezone).format("MM-DD-YYYY")
+					var end_date = moment(currentPromo.end_date).tz(timezone).format("MM-DD-YYYY")
+					if (start_date === end_date) {
+						return false
+					} else {
+						return true
+					}
+				},
+				truncate(val_body) {
+                    var truncate = _.truncate(val_body, { 'length': 99, 'separator': ' ' });
+                    return truncate;
+                },
+				shareURL(slug) {
+                    var share_url = window.location.href
+                    return share_url
+                }
+			}
+        });
+    });
 </script>
