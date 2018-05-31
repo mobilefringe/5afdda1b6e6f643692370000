@@ -61,6 +61,13 @@
                     siteInfo: site
                 }
             },
+            watch: {
+				currentPromo: function() {
+				    if (_.includes(this.currentPromo.image_url, 'missing')) {
+                        this.currentPromo.image_url = "//codecloud.cdn.speedyrails.net/sites/5acbda8d6e6f64670f1a0000/image/png/1527612896000/milton_logo.png";
+                    }
+				}
+			},
             created() {
 				this.$store.dispatch("getData", "promotions").then(response => {
 				    var temp_repo = this.findRepoByName('Promos & Events Banner');
