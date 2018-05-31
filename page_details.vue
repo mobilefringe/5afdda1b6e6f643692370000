@@ -35,13 +35,16 @@
                     currentPage: null
                 }
             },
-            created() {
-                var temp_repo = this.findRepoByName('Promos & Events Banner');
-                if(temp_repo) {
-                    this.pageBanner = temp_repo.images[0];
-                }
-                    
-                this.updateCurrentPage(this.id);
+            created(){
+                this.loadData().then(response => {
+                    var temp_repo = this.findRepoByName('Inside Page Banner');
+                    if(temp_repo) {
+                        this.pageBanner = temp_repo.images[0];
+                    }
+
+                    this.updateCurrentPage(this.id);
+                    this.dataLoaded = true;
+                });
             },
             watch: {
                 $route: function () {
@@ -50,19 +53,20 @@
             },
             computed: {
                 ...Vuex.mapGetters([
-                    'property'
+                    'property',
+                    'findRepoByName'
                 ])
             },
             methods: {
                 loadData: async function () {
                     try {
                         let results = await Promise.all([this.$store.dispatch("getData", "repos")]);
+                        return results;
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
                     }
                 },
                 updateCurrentPage(id) {
-                    this.property.mm_host = this.property.mm_host.replace("http:", "");
                     var _this = this;
                     this.$store.dispatch('LOAD_PAGE_DATA', { url: this.property.mm_host + "/pages/" + this.id + ".json" }).then(function (response) {
                         _this.currentPage = response.data;
