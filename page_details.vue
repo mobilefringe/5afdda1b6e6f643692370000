@@ -5,7 +5,7 @@
             <div v-if="dataLoaded" v-cloak>
                 <div class="inside_header_background" v-if="pageBanner" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
                     <div class="main_container">
-                        <h2 v-html="currentPage.title"></h2>
+                        <h2 v-if="currentPage" v-html="currentPage.title"></h2>
                     </div>
                 </div>
                 <div class="main_container mobile_padding margin_30">
@@ -14,7 +14,7 @@
                             <img class="img_max" src="//codecloud.cdn.speedyrails.net/sites/5afdda1b6e6f643692370000/image/jpeg/1527708236000/Casas Adobes - Aerial 03.jpg" alt="" />    
                         </div>
                         <div class="details_col_9">
-                            <div class="page_body" v-html="currentPage.body"></div>
+                            <div class="page_body" v-if="currentPage" v-html="currentPage.body"></div>
                         </div>
                     </div>
                 </div>
