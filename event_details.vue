@@ -58,12 +58,18 @@
 			data: function() {
 				return {
 					dataLoaded: false,
+					currentPromo: null,
 					currentEvent: null,
 				    siteInfo: site,
 				}
 			},
 			created() {
 				this.$store.dispatch("getData", "events").then(response => {
+				    var temp_repo = this.findRepoByName('Promos & Events Banner');
+                    if(temp_repo) {
+                        this.pageBanner = temp_repo.images[0];
+                    }
+                    
 					this.currentEvent = this.findEventBySlug(this.id);
 					if (this.currentEvent === null || this.currentEvent === undefined) {
 						this.$router.replace({ name: '404' });
@@ -77,6 +83,7 @@
 				...Vuex.mapGetters([
 					'property',
 					'timezone',
+					'findRepoByName',
 					'processedEvents',
 					'findEventBySlug',
 				])
