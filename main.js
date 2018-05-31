@@ -109,9 +109,13 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'vuex-router-syn
                                 href: "/location"
                             },
                             {
-                                name: "Management",
-                                href: "/pages/casas-management"
-                            },
+                                name: "Contact Us",
+                                href: "/contact-us"
+                            }
+                            // {
+                            //     name: "Management",
+                            //     href: "/pages/casas-management"
+                            // },
                             // {
                             //     name: "Leasing",
                             //     href: "/pages/casas-leasing"
