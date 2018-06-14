@@ -89,6 +89,11 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'vuex-router-syn
                             //     name: "Services",
                             //     href: "/pages/casas-services"
                             // },
+                            ,
+                             {
+                                name: "About Us",
+                                href: "	/pages/casas-about-us"
+                            }
                             {
                                 name: "Newsletter",
                                 href: "/newsletter"
