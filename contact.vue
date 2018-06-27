@@ -11,7 +11,7 @@
                 <div class="main_container margin_30">
                     <div class="details_row">
                         <div class="details_col_3 hidden_phone">
-                            <img class="img_max" src="https://placehold.it/440x1200" alt="" />    
+                            <img class="img_max" src="//codecloud.cdn.speedyrails.net/sites/5afdda1b6e6f643692370000/image/jpeg/1527708236000/Casas Adobes - Aerial 03.jpg" alt="" />    
                         </div>
                         <div class="details_col_9">
                             <div class="row">
