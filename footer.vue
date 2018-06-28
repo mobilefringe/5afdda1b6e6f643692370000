@@ -27,14 +27,22 @@
                     </div>
                     <div class="clearfix"></div>
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-4 footer_middle hidden_phone">
-
-                </div>
                 <div class="col-xs-12 col-sm-6 col-md-4 footer_newsletter">
                     <p class="footer_heading">NEWSLETTER SUBSCRIPTION</p>
                     <label for="emailAddress" class="accessibility">Enter Email Address</label>
                     <input id="emailAddress" v-model="newsletter_email" type="text" placeholder="Susbcribe to Newsletter" class="newsletter_control" required />
                     <button @click="newsletterRoute" class="newsletter_btn animated_btn">Subscribe</button>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 footer_insta">
+                    <a class="pull-right insta_view_more" :href="siteInfo.instagramURL" target="_blank">View More <i class="fa fa-caret-right"></i></a>
+                    <p class="footer_heading">INSTAGRAM</p>
+                    <div class="insta-feed-container">
+                        <div class="insta-feed-image " v-for="(item, index) in instaFeed">
+                            <a :href="item.link" target="_blank">
+                                <img :src="item.images.thumbnail.url" :alt="item.id"/>
+                            </a>
+                        </div>
+                    </div> 
                 </div>
             </div>
         </section>
