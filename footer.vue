@@ -34,15 +34,17 @@
                     <button @click="newsletterRoute" class="newsletter_btn animated_btn">Subscribe</button>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-4 footer_insta">
-                    <a class="pull-right insta_view_more" :href="siteInfo.instagramURL" target="_blank">View More <i class="fa fa-caret-right"></i></a>
-                    <p class="footer_heading">INSTAGRAM</p>
-                    <div class="insta-feed-container">
-                        <div class="insta-feed-image " v-for="(item, index) in instaFeed">
-                            <a :href="item.link" target="_blank">
-                                <img :src="item.images.thumbnail.url" :alt="item.id"/>
-                            </a>
-                        </div>
-                    </div> 
+                    <div class="fb-page" data-href="https://www.facebook.com/pages/Casas-Adobes-Plaza" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"></div>
+                    
+                    <!--<a class="pull-right insta_view_more" :href="siteInfo.instagramURL" target="_blank">View More <i class="fa fa-caret-right"></i></a>-->
+                    <!--<p class="footer_heading">INSTAGRAM</p>-->
+                    <!--<div class="insta-feed-container">-->
+                    <!--    <div class="insta-feed-image " v-for="(item, index) in instaFeed">-->
+                    <!--        <a :href="item.link" target="_blank">-->
+                    <!--            <img :src="item.images.thumbnail.url" :alt="item.id"/>-->
+                    <!--        </a>-->
+                    <!--    </div>-->
+                    <!--</div> -->
                 </div>
             </div>
         </section>
