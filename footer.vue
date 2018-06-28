@@ -27,7 +27,7 @@
                     </div>
                     <div class="clearfix"></div>
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="col-xs-12 col-sm-6 col-md-4 footer_middle">
 
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4 footer_newsletter">
