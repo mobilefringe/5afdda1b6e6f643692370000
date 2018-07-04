@@ -76,6 +76,11 @@
                     return banners
                 },
                 featureItems() {
+                    _.forEach(features, function(value, key) {
+                    if( _.includes(value.name, 'Eats')) {
+                            value.prop = 'eats';
+                        }
+                    });
                     return _.slice(this.$store.state.feature_items, 0, 3);
                 }
             },
