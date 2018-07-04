@@ -152,8 +152,7 @@
                         this.filteredStores = this.allStores;
                     }
                     
-                    this.allStores;
-                    this.sortByStores = true;
+                    
                     this.dataLoaded = true;
                 });
             },
