@@ -147,7 +147,7 @@
                     console.log("category", this.category)
                     if(this.category == "fine_dining"){
                        this.selectedCat = "Dine";
-                       this.filteredByCategory;
+                       this.filteredByCategory(this.selectedCat);
                     } else {
                         // this.filteredStores = this.allStores;
                         this.allStores;
