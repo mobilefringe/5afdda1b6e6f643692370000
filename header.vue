@@ -4,9 +4,9 @@
             <div class="row logo_container">
                 <div class="col-md-3">
                     <div class="site_logo center-block">
-                        <a href="/">
+                        <router-link to="/">
                             <img :alt="siteInfo.siteName" src="//codecloud.cdn.speedyrails.net/sites/5afdda1b6e6f643692370000/image/png/1528825608000/400x174largeblack.png">
-                        </a>
+                        </router-link>
                     </div>
                     <div @click="showMenu = !showMenu" :class="{ open: showMenu }" id="menu-icon">
                         <span></span>
