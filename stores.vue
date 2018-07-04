@@ -145,7 +145,7 @@
                     }
                     
                     console.log("category", this.category)
-                    if(this.category == "eats"){
+                    if(this.category == "fine_dining"){
                        this.selectedCat = "Dine";
                        this.filterByCategory;
                     } else {
