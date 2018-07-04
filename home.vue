@@ -82,7 +82,7 @@
                             value.prop = 'eats';
                         }
                     });
-                    return;
+                    return features;
                 }
             },
             methods: {
