@@ -143,7 +143,15 @@
                     if(temp_repo) {
                         this.pageBanner = temp_repo.images[0];
                     }
-
+                    
+                    console.log("category", this.category)
+                    if(this.category == "eats"){
+                       this.selectedCat = "Food and Restaurants";
+                       this.filterByCategory;
+                    } else {
+                        this.filteredStores = this.allStores;
+                    }
+                    
                     this.allStores;
                     this.sortByStores = true;
                     this.dataLoaded = true;
