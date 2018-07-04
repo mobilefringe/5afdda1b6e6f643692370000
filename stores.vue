@@ -149,7 +149,9 @@
                        this.selectedCat = "Dine";
                        this.filterByCategory;
                     } else {
-                        this.filteredStores = this.allStores;
+                        // this.filteredStores = this.allStores;
+                        this.allStores;
+                        this.sortByStores = true;
                     }
                     
                     
