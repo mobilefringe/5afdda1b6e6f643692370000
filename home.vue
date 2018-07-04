@@ -78,7 +78,7 @@
                 featureItems() {
                     var features =  _.slice(this.$store.state.feature_items, 0, 3);
                     _.forEach(features, function(value, key) {
-                    if( _.includes(value.name, 'Eats')) {
+                        if( _.includes(value.name, 'Eats')) {
                             value.prop = 'eats';
                         }
                     });
