@@ -16,7 +16,9 @@
                 <div class="main_container">
                     <div v-if="featureItems" class="row">
                         <div v-for="item in featureItems" class="col-sm-4 feature_item">
-                            <a :href="item.url">
+                            <router-link :to="{ name: 'storeList', params: { category: feature.prop }}" v-else-if="feature.prop">
+                            </router-link>
+                            <a :href="item.url" v-else>
                                 <img :src="item.image_url" :alt="item.name" />
                             </a>
                         </div>
