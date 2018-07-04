@@ -163,7 +163,8 @@ define([], function () {
                     meta: {
                         pageName: 'Store Directory',
                     },
-                    name: 'storeList'
+                    name: 'storeList',
+                    props: true
                 },
                 {
                     path: ':id',
