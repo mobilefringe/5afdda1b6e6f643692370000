@@ -29,6 +29,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4 footer_newsletter">
                     <p class="footer_heading">NEWSLETTER SUBSCRIPTION</p>
+                    <p>Get the latest updates delivered straight to your inbox!</p>
                     <button @click="newsletterRoute" class="newsletter_btn animated_btn">Subscribe</button>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-4 footer_insta">
