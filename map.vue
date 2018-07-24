@@ -69,6 +69,9 @@
                     'findRepoByName',
                     'processedStores'
                 ]),
+                alphaStores() {
+                    return this.storesByAlphaIndex
+                },
                 allStores() {
                     this.processedStores.map(function(store){
                         store.zoom = 1;
