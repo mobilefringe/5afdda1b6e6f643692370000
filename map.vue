@@ -23,13 +23,23 @@
                                 </div>
                             </div>
                             <div class="visible_phone">
-                                <v-select 
-                                    :options="allStores" 
-                                    :placeholder="'Select A Store'" 
-                                    :searchable="false" 
-                                    :label="'name'" 
-                                    :on-change="dropPin"
-                                ></v-select>
+                                <!--<v-select -->
+                                <!--    :options="allStores" -->
+                                <!--    :placeholder="'Select A Store'" -->
+                                <!--    :searchable="false" -->
+                                <!--    :label="'name'" -->
+                                <!--    :on-change="dropPin"-->
+                                <!--</v-select>-->
+                                <div class="position_relative">
+                                    <search-component v-model="storeSearch" :list="processedStores" :suggestion-attribute="suggestionAttribute" @select="onOptionSelect" :threshold="0.5">
+                                        <template slot="item" scope="option">
+                                            <article class="media">
+                                                <p>{{ option.data.name }}</p>
+                                            </article>
+                                        </template>
+                                    </search-component>
+                                    <i id="store-search-icon" class="fa fa-search" aria-hidden="true"></i>
+                                </div>
                             </div>
                         </div>
                         <div class="details_col_9">
