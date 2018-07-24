@@ -60,7 +60,8 @@
                 return {
                     dataLoaded: false,
                     pageBanner: "",
-                    pageBanner: ""
+                    suggestionAttribute: "name",
+                    storeSearch: null
                 }
             },
             created (){
@@ -118,9 +119,13 @@
                         console.log("Error loading data: " + e.message);
                     }
                 },
-                dropPin(store) {
+                onOptionSelect(store) {
+                    this.$nextTick(function() {
+                        this.storeSearch = ""
+                    });
+                    // this.$refs.mapplic_ref.showLocation(option.svgmap_region);
                     this.pngMapRef.showLocation(store.id);
-                }
+                },
             }
         });
     });
