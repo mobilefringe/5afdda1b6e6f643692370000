@@ -123,7 +123,6 @@
                     this.$nextTick(function() {
                         this.storeSearch = ""
                     });
-                    // this.$refs.mapplic_ref.showLocation(option.svgmap_region);
                     this.pngMapRef.showLocation(store.id);
                 },
             }
