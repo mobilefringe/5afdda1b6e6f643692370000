@@ -71,9 +71,6 @@
                     'storesByAlphaIndex'
                 ]),
                 alphaStores() {
-                    this.storesByAlphaIndexs.map(function(store){
-                        store.zoom = 1;
-                    })
                     return this.storesByAlphaIndex;
                 },
                 allStores() {
