@@ -67,7 +67,8 @@
                 ...Vuex.mapGetters([
                     'property',
                     'findRepoByName',
-                    'processedStores'
+                    'processedStores',
+                    'storesByAlphaIndex'
                 ]),
                 alphaStores() {
                     return this.storesByAlphaIndex
