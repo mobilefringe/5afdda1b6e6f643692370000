@@ -71,7 +71,7 @@
                     'storesByAlphaIndex'
                 ]),
                 alphaStores() {
-                    return this.storesByAlphaIndex
+                    return this.storesByAlphaIndex;
                 },
                 allStores() {
                     this.processedStores.map(function(store){
