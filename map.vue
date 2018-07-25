@@ -23,13 +23,6 @@
                                 </div>
                             </div>
                             <div class="visible_phone">
-                                <!--<v-select -->
-                                <!--    :options="allStores" -->
-                                <!--    :placeholder="'Select A Store'" -->
-                                <!--    :searchable="false" -->
-                                <!--    :label="'name'" -->
-                                <!--    :on-change="dropPin"-->
-                                <!--</v-select>-->
                                 <div class="position_relative">
                                     <search-component v-model="storeSearch" :list="processedStores" :suggestion-attribute="suggestionAttribute" @select="onOptionSelect" :threshold="0.5">
                                         <template slot="item" scope="option">
@@ -124,7 +117,7 @@
                         this.storeSearch = ""
                     });
                     this.pngMapRef.showLocation(store.id);
-                },
+                }
             }
         });
     });
