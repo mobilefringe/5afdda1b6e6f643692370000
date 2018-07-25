@@ -117,6 +117,9 @@
                         this.storeSearch = ""
                     });
                     this.pngMapRef.showLocation(store.id);
+                },
+                dropPin(store) {
+                    this.pngMapRef.showLocation(store.id);
                 }
             }
         });
