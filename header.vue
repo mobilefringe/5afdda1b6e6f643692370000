@@ -91,11 +91,7 @@
         </section>
     </header>
 </template>
-<style>
-    p.card-text {
-        display: block;
-    }
-</style>
+
 <script>
     define(["Vue", "vuex", "vue!today_hours.vue", "bootstrap-vue", "json!site.json"], function (Vue, Vuex, TodayHoursComponent, BootstrapVue, site) {
         // Vue.use(BootstrapVue);
