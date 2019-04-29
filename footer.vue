@@ -25,7 +25,7 @@
                     <!--        </span>-->
                     <!--    </p>-->
                     <!--</div>-->
-                    <iframe title="Map" width="100%" height="400px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"  :src="'https://maps.google.nl/maps?q=' + getPropertyAddress + '&amp;hl=en&amp;ie=UTF8&amp;t=v&amp;hnear=' + getPropertyAddress + '&amp;z=16&amp;output=embed'"></iframe>
+                    <iframe title="Map" width="100%" height="400px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"  :src="'https://maps.google.nl/maps?q=' + getPropertyAddressMap + '&amp;hl=en&amp;ie=UTF8&amp;t=v&amp;hnear=' + getPropertyAddress + '&amp;z=16&amp;output=embed'"></iframe>
                     <div class="clearfix"></div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4 footer_newsletter">
@@ -108,6 +108,10 @@
                 },
                 getPropertyAddress() {
                     return this.property.address1 + ' ' + this.property.city + ' ' + this.property.country + ' ' + this.property.province_state
+                },
+                ,
+                getPropertyAddressMap() {
+                    return this.property.name + ' ' + this.property.address1 + ' ' + this.property.city + ' ' + this.property.country + ' ' +this.property.province_state + ' ' + this.property.province_state
                 }
             },
             methods: {
