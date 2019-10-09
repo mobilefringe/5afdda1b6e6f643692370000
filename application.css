@@ -289,7 +289,6 @@ hr{
 	font-family: 'Roboto', sans-serif;
 	text-transform: uppercase;
 	&:hover {
-	    color: $primary;
 	    text-decoration: underline;
 	}
 }
