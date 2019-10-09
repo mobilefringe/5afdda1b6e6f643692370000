@@ -32,7 +32,8 @@
                     <nav id="primary_nav">
 						<ul>
 						    <li class="menu_item" v-for="item in menu_items" :id="item.id">
-						        <router-link :to="item.href">{{ item.name }}</router-link>
+						        <span v-if="!item.href">{{item.name}}</span>
+						        <router-link v-else :to="item.href">{{ item.name }}</router-link>
 						        <ul v-if="item.sub_menu">
 						            <li v-for="sub_menu in item.sub_menu" class="dropdown_item">
 						                <router-link :to="sub_menu.href">{{ sub_menu.name }}</router-link>
