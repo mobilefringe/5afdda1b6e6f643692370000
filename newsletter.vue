@@ -30,8 +30,8 @@
                                         <input v-model="form_data.name" required class="margin_20 form-control" id="cm-name" type="text" placeholder="Name">
                                     </div>
                                     <div class="col-sm-8">
-                                        <label for="cm-vltuui-vltuui">Email</label>
-                                        <input v-model="form_data.email" required class="margin_20 form-control" id="cm-vltuui-vltuui" type="email" placeholder="Email" id="newsletter_email">
+                                        <label for="newsletter_email">Email</label>
+                                        <input v-model="form_data.email" required class="margin_20 form-control" name="cm-vltuui-vltuui" type="email" placeholder="Email" id="newsletter_email">
                                     </div>
                                     <div class="col-sm-8">
                                         <div style="margin-left: 20px">
