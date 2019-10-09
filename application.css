@@ -144,8 +144,8 @@ hr{
     &:focus-within > .subdropdown,
     .subdropdown:hover,
     .subdropdown.focus {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
+        display: block;
+        z-index: 99;
     }
 }
 
