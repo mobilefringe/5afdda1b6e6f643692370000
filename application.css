@@ -852,7 +852,7 @@ footer {
     }
 }
 .v-select .spinner {
-    font-size: 125% !important;
+    font-size: 1rem !important;
 }
 #selectByCat.v-select {
     .dropdown-toggle {
