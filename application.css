@@ -130,11 +130,20 @@ hr{
 }
 
 //NAVIGATION
+// .menu_item {
+//     &:hover > .subdropdown,
+//     &:focus-within > .subdropdown,
+//     .dubdropdown:hover,
+//     .subdropdown:focus {
+//         opacity: 1;
+//         transform: translateX(-50%) translateY(0);
+//     }
+// }
 .menu_item {
     &:hover > .subdropdown,
     &:focus-within > .subdropdown,
-    .dubdropdown:hover,
-    .subdropdown:focus {
+    .subdropdown:hover,
+    .subdropdown.focus {
         opacity: 1;
         transform: translateX(-50%) translateY(0);
     }
