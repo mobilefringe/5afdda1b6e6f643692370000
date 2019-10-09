@@ -129,6 +129,17 @@ hr{
     max-width: 100%;
 }
 
+//NAVIGATION
+.menu_item {
+    &:hover > .subdropdown,
+    &:focus-within > .subdropdown,
+    .dubdropdown:hover,
+    .subdropdown:focus {
+        display:block;
+    }
+}
+
+
 /* *** LOADING *** */
 .loading-container {
     margin: auto;
