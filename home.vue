@@ -65,7 +65,8 @@
                 ...Vuex.mapGetters([
                     'property',
                     'timezone',
-                    'getPropertyHours'
+                    'getPropertyHours',
+                    'findMetaDataByPath'
                 ]),
                 homeBanners() {
                     var banners = [];
