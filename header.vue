@@ -20,9 +20,8 @@
                     <div class="header_social_container hidden-sm hidden-xs">
                         <div class="header_social">
                             <span class="social_icon" v-for="item in social_media">
-                                <a :href="item.url" target="_blank">
+                                <a :href="item.url" target="_blank" :aria-label="'Follow us on ' + item.name">
                                     <div>
-                                        <p class="accessibility">{{item.name}}</p>
                                         <i :class="item.iconClass" aria-hidden="true"></i>
                                     </div>
                                 </a>
