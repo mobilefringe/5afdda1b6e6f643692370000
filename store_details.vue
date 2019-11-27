@@ -49,10 +49,10 @@
                                             <i v-else  class="fa fa-plus"></i>
                                         </b-btn>
                                     </b-card-header>
-                                    <b-collapse v-for="promo in storePromotions" v-model="togglePromos" id="togglePromotions" class="accordion_body">
-                                        <b-card-body>
+                                    <b-collapse v-model="togglePromos" id="togglePromotions" class="accordion_body">
+                                        <b-card-body v-for="(promo, index) in storePromotions">
                                             <div class="row">
-                                                <div class="col-md-5" v-if="">
+                                                <div class="col-md-5">
                                                     <img :src="promo.image_url" :alt="'Promotion: ' + promo.name" />
                                                 </div>
                                                 <div class="col-md-7">
@@ -81,8 +81,8 @@
                                             <i v-else  class="fa fa-plus"></i>
                                         </b-btn>
                                     </b-card-header>
-                                    <b-collapse v-for="job in storeJobs" v-model="toggleJobs" id="toggleJobs" class="accordion_body">
-                                        <b-card-body>
+                                    <b-collapse v-model="toggleJobs" id="toggleJobs" class="accordion_body">
+                                        <b-card-body v-for="(job, index) in storeJobs">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <h3 class="promo_name">{{job.name}}</h3>
