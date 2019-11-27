@@ -16,14 +16,14 @@
                         <div class="details_col_9">
                             <!-- PROMOTIONS -->
                             <b-card no-body class="mb-1 inside_page_toggle">
-                                <b-card-header header-tag="header" class="p-1" role="tab">
+                                <b-card-header header-tag="header" class="p-1">
                                     <b-btn block @click="togglePromos = !togglePromos" :aria-expanded="togglePromos ? 'true' : 'false'" aria-controls="togglePromotions">
                                         Promotions
                                         <i v-if="togglePromos"  class="fa fa-minus f"></i>
                                         <i v-else  class="fa fa-plus"></i>
                                     </b-btn>
                                 </b-card-header>
-                                <b-collapse v-if="promoList.length >= 1" v-for="promo in promoList" v-model="togglePromos" role="tabpanel" id="togglePromotions" class="accordion_body">
+                                <b-collapse v-if="promoList.length >= 1" v-for="promo in promoList" v-model="togglePromos" id="togglePromotions" class="accordion_body">
                                     <b-card-body>
                                         <div class="row">
                                             <div class="col-md-5" v-if="">
@@ -49,7 +49,7 @@
                                         <hr class="promo_separator" />
                                     </b-card-body>
                                 </b-collapse>
-                                <b-collapse v-if="promoList.length == 0" v-model="togglePromos" role="tabpanel" id="togglePromotions" class="accordion_body">
+                                <b-collapse v-if="promoList.length == 0" v-model="togglePromos" id="togglePromotions" class="accordion_body">
                                     <b-card-body>
                                         <div class="row">
                                             <div class="col-md-12">
@@ -60,19 +60,19 @@
                                     </b-card-body>
                                 </b-collapse>
                             </b-card>
-                                                        <!-- EVENTS -->
+                            <!-- EVENTS -->
                             <b-card no-body class="mb-1 inside_page_toggle">
-                                <b-card-header header-tag="header" class="p-1" role="tab">
+                                <b-card-header header-tag="header" class="p-1">
                                     <b-btn block @click="toggleEvents = !toggleEvents" :aria-expanded="toggleEvents ? 'true' : 'false'" aria-controls="toggleEvents">
                                         Events
                                         <i v-if="toggleEvents"  class="fa fa-minus f"></i>
                                         <i v-else  class="fa fa-plus"></i>
                                     </b-btn>
                                 </b-card-header>
-                                <b-collapse v-if="eventList.length >= 1" v-for="event in eventList" v-model="toggleEvents" role="tabpanel" id="toggleEvents" class="accordion_body">
+                                <b-collapse v-if="eventList.length >= 1" v-for="event in eventList" v-model="toggleEvents" id="toggleEvents" class="accordion_body">
                                     <b-card-body>
                                         <div class="row">
-                                            <div class="col-md-5" v-if="">
+                                            <div class="col-md-5">
                                                 <img :src="event.image_url" :alt="'Event: ' + event.name" class="max_img" />
                                             </div>
                                             <div class="col-md-7">
