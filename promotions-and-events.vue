@@ -24,9 +24,9 @@
                                     </b-btn>
                                 </b-card-header>
                                 <b-collapse v-if="promoList.length >= 1" v-model="togglePromos" id="togglePromotions" class="accordion_body">
-                                    <b-card-body>
-                                        <div class="row" v-for="(promo, index) in promoList">
-                                            <div class="col-md-5" v-if="">
+                                    <b-card-body v-for="(promo, index) in promoList">
+                                        <div class="row">
+                                            <div class="col-md-5">
                                                 <img :src="promo.image_url" :alt="'Promotion: ' + promo.name" class="max_img" />
                                             </div>
                                             <div class="col-md-7">
