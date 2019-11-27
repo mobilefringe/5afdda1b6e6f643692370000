@@ -27,7 +27,7 @@
                             
                         </div>
                         <div class="details_col_9">
-                            <p class="visuallyhidden"><a :href="'https://maps.google.com/?q=' + ">View {{ property.name }} on Google Maps</a></p>
+                            <p class="visuallyhidden"><a :href="'https://maps.google.com/?q=' + property.name">View {{ property.name }} on Google Maps</a></p>
                             <iframe aria-hidden="true" width="100%" height="400px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"  :src="'https://maps.google.nl/maps?q=' + getPropertyAddress + '&amp;hl=en&amp;ie=UTF8&amp;t=v&amp;hnear=' + getPropertyAddress + '&amp;z=16&amp;output=embed'"></iframe>
                             <hr>
                             <div class="page_content" v-if="currentPage" v-html="currentPage.body"></div>
