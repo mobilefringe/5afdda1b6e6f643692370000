@@ -23,7 +23,7 @@
                                         <i v-else  class="fa fa-plus"></i>
                                     </b-btn>
                                 </b-card-header>
-                                <b-collapse v-if="promoList.length >= 1" v-for="promo in promoList" v-model="togglePromos" class="accordion_body">
+                                <b-collapse v-if="promoList.length >= 1" v-for="(promo, index) in promoList" v-model="togglePromos" :id="'toggle ' + index" class="accordion_body">
                                     <b-card-body>
                                         <div class="row">
                                             <div class="col-md-5" v-if="">
