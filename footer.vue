@@ -3,7 +3,10 @@
         <section class="footer_menu main_container">
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-4 footer_hours">
-                    <iframe role="img" :aria-label="'Google Map showing surrounding area of ' + property.name" title="Map" width="100%" height="200px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" :src="propertyAddress()"></iframe>
+                    <p class="visuallyhidden">
+                        <a :href="'https://maps.google.com/?q=' + property.name">View {{ property.name }} on Google Maps</a>.
+                    </p>
+                    <iframe aria-hidden="true" title="Map" width="100%" height="200px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" :src="propertyAddress()"></iframe>
                     <div class="clearfix"></div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4 footer_newsletter">
