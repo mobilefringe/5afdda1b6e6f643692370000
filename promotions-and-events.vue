@@ -69,9 +69,9 @@
                                         <i v-else  class="fa fa-plus"></i>
                                     </b-btn>
                                 </b-card-header>
-                                <b-collapse v-if="eventList.length >= 1" v-for="event in eventList" v-model="toggleEvents" id="toggleEvents" class="accordion_body">
+                                <b-collapse v-if="eventList.length >= 1" v-model="toggleEvents" id="toggleEvents" class="accordion_body">
                                     <b-card-body>
-                                        <div class="row">
+                                        <div class="row" v-for="(event, index) in eventList">
                                             <div class="col-md-5">
                                                 <img :src="event.image_url" :alt="'Event: ' + event.name" class="max_img" />
                                             </div>
