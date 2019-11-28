@@ -4,7 +4,7 @@
             <div class="row logo_container">
                 <div class="col-md-3">
                     <div class="site_logo center-block">
-                        <h1 class="accessibility">Casas Adobes Plaza</h1>
+                        <h1 class="visuallyhidden">Welcome to {{ property.name }}</h1>
                         <router-link to="/">
                             <img :alt="siteInfo.siteName" src="//codecloud.cdn.speedyrails.net/sites/5d9d67a56e6f647b59010000/image/png/1528825608000/400x174largeblack.png">
                         </router-link>
