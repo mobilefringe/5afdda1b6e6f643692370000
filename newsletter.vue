@@ -48,54 +48,37 @@
                      <!--       </form> -->
                      
                                 <form class="form-horizontal js-cm-form" id="subForm" action="https://www.createsend.com/t/subscribeerror?description=" method="post" data-id="92D4C54F0FEC16E5ADC2B1904DE9ED1AB334919E66C5BA325F9A5B16068F7E42272BA19ED4F22D7B417C739DE334FBC0513F1D33A1D5FACCDA0E8F3FFFE445F0" >
-                                    <div>
-                                        <div>
-                                            <label>Name </label>
-                                            <input aria-label="Name" id="fieldName" maxlength="200" name="cm-name">
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <label for="cm-name">Name </label>
+                                            <input lass="margin_20 form-control" aria-label="Name" id="cm-name" maxlength="200" name="cm-name">
                                         </div>
-                                        <div>
-                                            <label>Email </label>
-                                            <input autocomplete="Email" aria-label="Email" class="js-cm-email-input qa-input-email" id="fieldEmail" maxlength="200" name="cm-vltuui-vltuui" required="" type="email">
+                                        <div class="col-sm-8">
+                                            <label for="newsletter_email">Email </label>
+                                            <input autocomplete="Email" aria-label="Email" class="js-cm-email-input qa-input-email margin_20 form-control" id="newsletter_email" maxlength="200" name="cm-vltuui-vltuui" required="" type="email">
                                         </div>
-                                        <div>
-                                            <div>
-                                                <div>
+                                        <div class="col-sm-8">
+                                            <div style="margin-left: 20px">
+                                                
+                                                    
+                                                <label class="checkbox" for="cm-privacy-consent">
                                                     <input aria-required="" id="cm-privacy-consent" name="cm-privacy-consent" required="" type="checkbox">
-                                                    <label for="cm-privacy-consent">I agree to receive communications from Casas Adobes Plaza.</label>
-                                                </div>
+                                                    I agree to receive communications from Casas Adobes Plaza.
+                                                        
+                                                </label>
+                                    
                                                 <input id="cm-privacy-consent-hidden" name="cm-privacy-consent-hidden" type="hidden" value="true">
                                             </div>
                                         </div>
+                                        <div class="margin_20 clearfix"></div>
+                                        <div class="col-xs-12">
+                                            <button class="animated_btn" type="submit" >Subscribe</button>
+                                        </div>
                                     </div>
-                                    <button type="submit">Subscribe</button>
+                               
                                 </form>
                             
-                            
-                            <!--<form class="js-cm-form form-horizontal" id="subForm" action="https://www.createsend.com/t/subscribeerror?description=" method="post" data-id="92D4C54F0FEC16E5ADC2B1904DE9ED1AB334919E66C5BA325F9A5B16068F7E42272BA19ED4F22D7B417C739DE334FBC0513F1D33A1D5FACCDA0E8F3FFFE445F0" @submit.prevent="validateBeforeSubmit">-->
-                            <!--    <div class="row">-->
-                            <!--        <div class="col-sm-8">-->
-                            <!--            <label for="cm-name">Name</label>-->
-                            <!--            <input v-model="form_data.name" required class="margin_20 form-control" aria-label="Name" id="cm-name" maxlength="200" name="cm-name" placeholder="Name">-->
-                            <!--        </div>-->
-                            <!--        <div class="col-sm-8">-->
-                            <!--            <label for="newsletter_email">Email </label>-->
-                            <!--            <input v-model="form_data.email" autocomplete="Email" aria-label="Email" class="js-cm-email-input qa-input-email margin_20 form-control" id="newsletter_email" maxlength="200" name="cm-vltuui-vltuui" required="" type="email" placeholder="Email">-->
-                            <!--        </div>-->
-                            <!--        <div class="col-sm-8">-->
-                            <!--            <div style="margin-left: 20px">-->
-                            <!--                <label class="checkbox" for="agree">-->
-                            <!--                    <input name="agree_newsletter" required  type="checkbox" id="agree">-->
-                            <!--                        I agree to receive communications from {{ property.name }}.-->
-                            <!--                </label>-->
-                            <!--            </div>-->
-                            <!--        </div>-->
-                            <!--        <div class="margin_20 clearfix"></div>-->
-                            <!--        <div class="col-xs-12">-->
-                            <!--            <button class="animated_btn" type="submit" :disabled="formSuccess">Subscribe</button>-->
-                            <!--        </div>-->
-                            <!--        <input id="cm-privacy-consent-hidden" name="cm-privacy-consent-hidden" type="hidden" value="true">-->
-                            <!--    </div>-->
-                            <!--</form>-->
+                        
                         </div>
                     </div>
                 </div>
