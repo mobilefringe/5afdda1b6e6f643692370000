@@ -22,13 +22,36 @@
                         </div>
                         <div class="details_col_9">
                             <p class="inside_page_link">Be the first to know about upcoming events and special announcements from {{ property.name }}!</p>
-
+                     <!--       <form class="form-horizontal" action="//mobilefringe.createsend.com/t/d/s/vltuui/" method="post" @submit.prevent="validateBeforeSubmit">-->
+                     <!--           <div class="row">-->
+                     <!--               <div class="col-sm-8" >-->
+                     <!--                   <label for="cm-name">Name</label>-->
+                     <!--                   <input v-model="form_data.name" required class="margin_20 form-control" name="cm-name" id="cm-name" type="text" placeholder="Name">-->
+                     <!--               </div>-->
+                     <!--               <div class="col-sm-8">-->
+                     <!--                   <label for="newsletter_email">Email</label>-->
+                     <!--                   <input v-model="form_data.email" required class="margin_20 form-control" name="cm-vltuui-vltuui" type="email" placeholder="Email" id="newsletter_email">-->
+                     <!--               </div>-->
+                     <!--               <div class="col-sm-8">-->
+                     <!--                   <div style="margin-left: 20px">-->
+                     <!--                       <label class="checkbox" for="agree">-->
+                     <!--                           <input name="agree_newsletter" required  type="checkbox" id="agree">-->
+                     <!--                               I agree to receive communications from {{ property.name }}.-->
+                     <!--                       </label>-->
+                     <!--                   </div>-->
+            					    <!--</div>-->
+            					    <!--<div class="margin_20 clearfix"></div>-->
+                     <!--               <div class="col-xs-12">-->
+                     <!--                   <button class="animated_btn" type="submit" :disabled="formSuccess">Subscribe</button>-->
+                     <!--               </div>-->
+                     <!--           </div>-->
+                     <!--       </form> -->
                      
                                 <form class="form-horizontal js-cm-form" id="subForm" action="https://www.createsend.com/t/subscribeerror?description=" method="post" data-id="92D4C54F0FEC16E5ADC2B1904DE9ED1AB334919E66C5BA325F9A5B16068F7E42272BA19ED4F22D7B417C739DE334FBC0513F1D33A1D5FACCDA0E8F3FFFE445F0" >
                                     <div class="row">
                                         <div class="col-sm-8">
                                             <label for="cm-name">Name </label>
-                                            <input lass="margin_20 form-control" aria-label="Name" id="cm-name" maxlength="200" name="cm-name">
+                                            <input class="margin_20 form-control" aria-label="Name" id="cm-name" maxlength="200" name="cm-name">
                                         </div>
                                         <div class="col-sm-8">
                                             <label for="newsletter_email">Email </label>
