@@ -47,8 +47,8 @@
                      <!--           </div>-->
                      <!--       </form> -->
                      
-                                <form class="form-horizontal js-cm-form" id="subForm" action="https://www.createsend.com/t/subscribeerror?description=" method="post" data-id="92D4C54F0FEC16E5ADC2B1904DE9ED1AB334919E66C5BA325F9A5B16068F7E42272BA19ED4F22D7B417C739DE334FBC0513F1D33A1D5FACCDA0E8F3FFFE445F0" @submit.prevent="validateBeforeSubmit">
-                                    <div class="row">
+                                <form class="form-horizontal js-cm-form" id="subForm" action="https://www.createsend.com/t/subscribeerror?description=" method="post" data-id="92D4C54F0FEC16E5ADC2B1904DE9ED1AB334919E66C5BA325F9A5B16068F7E42272BA19ED4F22D7B417C739DE334FBC0513F1D33A1D5FACCDA0E8F3FFFE445F0" >
+                                    <div>
                                         <div>
                                             <label>Name </label>
                                             <input aria-label="Name" id="fieldName" maxlength="200" name="cm-name">
