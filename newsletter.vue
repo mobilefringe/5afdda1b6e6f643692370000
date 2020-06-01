@@ -54,11 +54,11 @@
                                             <input v-model="form_data.name" aria-label="Name" id="fieldName" maxlength="200" name="cm-name" type="text" placeholder="Name">
                                         </div>
                                         <div class="col-sm-8">
-                                            <label for="newsletter_email">Email </label>
-                                            <input v-model="form_data.email"  aria-label="Email" class="js-cm-email-input qa-input-email margin_20 form-control" id="newsletter_email" maxlength="200" name="cm-vltuui-vltuui" required="" type="email" placeholder="Email">
+                                            <label >Email </label>
+                                            <input autocomplete="Email" aria-label="Email" class="js-cm-email-input qa-input-email" id="fieldEmail" maxlength="200" name="cm-vltuui-vltuui" required="" type="email">
                                         </div>
-                                        <div class="col-sm-8">
-                                            <div style="margin-left: 20px">
+                                        <div>
+                                            <div>
                                                 <div>
                                                     <input aria-required="" id="cm-privacy-consent" name="cm-privacy-consent" required="" type="checkbox">
                                                     <label for="cm-privacy-consent">I agree to receive communications from Casas Adobes Plaza.</label>
