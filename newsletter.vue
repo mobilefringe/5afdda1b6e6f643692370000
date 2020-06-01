@@ -48,7 +48,33 @@
                             </form> 
                             
                             
-                            <form class="js-cm-form" id="subForm" action="https://www.createsend.com/t/subscribeerror?description=" method="post" data-id="92D4C54F0FEC16E5ADC2B1904DE9ED1AB334919E66C5BA325F9A5B16068F7E42272BA19ED4F22D7B417C739DE334FBC0513F1D33A1D5FACCDA0E8F3FFFE445F0"><div><div><label>Name </label><input aria-label="Name" id="fieldName" maxlength="200" name="cm-name"></div><div><label>Email </label><input autocomplete="Email" aria-label="Email" class="js-cm-email-input qa-input-email" id="fieldEmail" maxlength="200" name="cm-vltuui-vltuui" required="" type="email"></div><div><div><div><input aria-required="" id="cm-privacy-consent" name="cm-privacy-consent" required="" type="checkbox"><label for="cm-privacy-consent">I agree to receive communications from Casas Adobes Plaza.</label></div><input id="cm-privacy-consent-hidden" name="cm-privacy-consent-hidden" type="hidden" value="true"></div></div></div><button type="submit">Subscribe</button>
+                            <form class="js-cm-form" id="subForm" action="https://www.createsend.com/t/subscribeerror?description=" method="post" data-id="92D4C54F0FEC16E5ADC2B1904DE9ED1AB334919E66C5BA325F9A5B16068F7E42272BA19ED4F22D7B417C739DE334FBC0513F1D33A1D5FACCDA0E8F3FFFE445F0">
+                                <div>
+                                    <div>
+                                        <label>Name </label>
+                                        <input aria-label="Name" id="fieldName" maxlength="200" name="cm-name">
+                                            
+                                    </div>
+                                    <div>
+                                        <label>Email </label>
+                                        <input autocomplete="Email" aria-label="Email" class="js-cm-email-input qa-input-email" id="fieldEmail" maxlength="200" name="cm-vltuui-vltuui" required="" type="email">
+                                        
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <div>
+                                                <input aria-required="" id="cm-privacy-consent" name="cm-privacy-consent" required="" type="checkbox">
+                                                <label for="cm-privacy-consent">I agree to receive communications from Casas Adobes Plaza.</label>
+                                                    
+                                            </div>
+                                            <input id="cm-privacy-consent-hidden" name="cm-privacy-consent-hidden" type="hidden" value="true">
+                                                
+                                        </div>
+                                            
+                                    </div>
+                                        
+                                </div>
+                                <button type="submit">Subscribe</button>
                                 
                             </form>
                            
