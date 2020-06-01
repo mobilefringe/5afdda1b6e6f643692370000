@@ -50,11 +50,11 @@
                                 <form class="form-horizontal js-cm-form" id="subForm" action="https://www.createsend.com/t/subscribeerror?description=" method="post" data-id="92D4C54F0FEC16E5ADC2B1904DE9ED1AB334919E66C5BA325F9A5B16068F7E42272BA19ED4F22D7B417C739DE334FBC0513F1D33A1D5FACCDA0E8F3FFFE445F0" @submit.prevent="validateBeforeSubmit">
                                     <div class="row">
                                         <div class="col-sm-8">
-                                            <label for="cm-name">Name </label>
-                                            <input v-model="form_data.name" aria-label="Name" id="fieldName" maxlength="200" name="cm-name" type="text" placeholder="Name">
+                                            <label >Name </label>
+                                            <input aria-label="Name" id="fieldName" maxlength="200" name="cm-name">
                                         </div>
-                                        <div class="col-sm-8">
-                                            <label >Email </label>
+                                        <div>
+                                            <label>Email </label>
                                             <input autocomplete="Email" aria-label="Email" class="js-cm-email-input qa-input-email" id="fieldEmail" maxlength="200" name="cm-vltuui-vltuui" required="" type="email">
                                         </div>
                                         <div>
