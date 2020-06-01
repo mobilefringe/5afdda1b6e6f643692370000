@@ -59,15 +59,11 @@
                                         </div>
                                         <div class="col-sm-8">
                                             <div style="margin-left: 20px">
-                                             
-                                                    
-                                                <label for="cm-privacy-consent">
+                                                <div>
                                                     <input aria-required="" id="cm-privacy-consent" name="cm-privacy-consent" required="" type="checkbox">
-                                                    I agree to receive communications from {{ property.name }}.
-                                                    
-                                                </label>
-                                         
-                                                <input class="animated_btn" id="cm-privacy-consent-hidden" name="cm-privacy-consent-hidden" type="hidden" value="true">
+                                                    <label for="cm-privacy-consent">I agree to receive communications from Casas Adobes Plaza.</label>
+                                                </div>
+                                                <input id="cm-privacy-consent-hidden" name="cm-privacy-consent-hidden" type="hidden" value="true">
                                             </div>
                                         </div>
                                     </div>
